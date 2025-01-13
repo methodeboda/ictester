@@ -1,0 +1,214 @@
+#include <LiquidCrystal.h>
+
+
+/* Display */
+LiquidCrystal lcd(12, 11, 10, 9, 8, 7);
+
+
+// Define button pins
+const int buttonRightPin = 3;
+const int buttonLeftPin = 5;
+const int buttonOKPin = 6;
+const int buttonESCPin = 2;
+
+// Button states
+int buttonRightState = 0;
+int buttonLeftState = 0;
+int buttonOKState = 0;
+int buttonESCState = 0;
+
+// Cursor position
+int cursorPosition = 0;
+
+// Options
+const char* options[] = {"128", "126", "AM04"};
+//const int optionsCount = sizeof(options) / sizeof(options[0]);
+const int optionsCount =3;
+
+// Page identifiers
+enum Page { WELCOME, SELECT_IC, PROCESSING, RESULT };
+Page currentPage = WELCOME;
+
+
+/*function*/
+void getstatus(void);
+void testing();
+void showResultPage();
+void showProcessingPage();
+void updateSelectICPage();
+void showWelcomePage();
+void showWelcomePage();
+
+void setup() {
+  // Set up the LCD's number of columns and rows
+  lcd.begin(16, 2);
+
+  // Initialize the button pins as input
+  pinMode(buttonRightPin, INPUT_PULLUP);
+  pinMode(buttonLeftPin, INPUT_PULLUP);
+  pinMode(buttonOKPin, INPUT_PULLUP);
+  pinMode(buttonESCPin, INPUT_PULLUP);
+
+  // Display the welcome page at startup
+  showWelcomePage();
+}
+
+
+void loop() {
+  getstatus();
+  switch (currentPage) {
+    case WELCOME:
+      /*if (buttonOKState == HIGH) {
+        currentPage = SELECT_IC;
+        updateSelectICPage();
+        delay(300); // Debounce delay
+        }*/
+      currentPage = SELECT_IC;
+      updateSelectICPage();
+      break;
+
+    case SELECT_IC:
+      if (buttonRightState == HIGH) {
+        cursorPosition = (cursorPosition + 1) % optionsCount;
+        updateSelectICPage();
+      }
+
+      if (buttonLeftState == HIGH) {
+        cursorPosition = (cursorPosition - 1 + optionsCount) % optionsCount;
+        updateSelectICPage();
+      }
+
+      if (buttonOKState == HIGH) {
+
+        //reset cursour
+        cursorPosition=0;
+
+        currentPage = PROCESSING;
+        showProcessingPage();
+
+        // testing process
+        testing();
+
+
+        // Show result page
+        currentPage = RESULT;
+        showResultPage();
+      }
+      break;
+
+    case PROCESSING:
+      // In a real scenario, this is where the actual testing logic would be implemented
+      break;
+
+    case RESULT:
+      if (buttonOKState == HIGH || buttonESCState == HIGH) {
+        currentPage = SELECT_IC;
+        updateSelectICPage();
+      }
+      break;
+  }
+}
+
+void testing()
+{
+   for (int i = 0; i < 3; i++)
+        {
+          digitalWrite(13, HIGH);
+          delay(500);
+          digitalWrite(13, LOW);
+          delay(500);
+        }
+        //test=1;
+}
+void getstatus(void)
+{
+  // Read button states
+  
+  // right
+  if (digitalRead(buttonRightPin) == LOW )
+  {
+    while (digitalRead(buttonRightPin) == LOW);
+    buttonRightState = HIGH;
+  }
+  else
+  {
+    buttonRightState = LOW;
+  }
+
+  //left
+  if (digitalRead(buttonLeftPin) == LOW )
+  {
+    while (digitalRead(buttonLeftPin) == LOW);
+    buttonLeftState = HIGH;
+  }
+  else
+  {
+    buttonLeftState = LOW;
+  }
+
+  //ok
+  if (digitalRead(buttonOKPin) == LOW )
+  {
+    while (digitalRead(buttonOKPin) == LOW);
+    buttonOKState = HIGH;
+  }
+  else
+  {
+    buttonOKState = LOW;
+  }
+
+  //esc
+  if (digitalRead(buttonESCPin) == LOW )
+  {
+    while (digitalRead(buttonESCPin) == LOW);
+    buttonESCState = HIGH;
+  }
+  else
+  {
+    buttonESCState = LOW;
+  }
+}
+
+void showWelcomePage() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Welcome to IC");
+  lcd.setCursor(0, 1);
+  lcd.print("Tester v1.0");
+  delay(2000); // Display welcome message for 2 seconds
+  //currentPage = SELECT_IC;
+  //updateSelectICPage();
+}
+
+void updateSelectICPage() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("select ic");
+
+  lcd.setCursor(0, 1);
+
+  for (int i = 0; i < optionsCount; i++) {
+    if (i == cursorPosition) {
+      lcd.print(">");
+    } else {
+      lcd.print("#");
+    }
+    lcd.print(options[i]);
+    lcd.print(" ");
+  }
+}
+
+void showProcessingPage() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Processing...");
+}
+
+void showResultPage() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Test Result:");
+  lcd.setCursor(0, 1);
+  lcd.print("IC is OK!");
+  //currentPage = RESULT;
+}
