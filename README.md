@@ -48,6 +48,7 @@ The **IC Tester Kit Using Arduino** is a microcontroller-based application desig
 - [📑 Table of Contents](#table-of-contents)
 - [⚙ Working](#-working)
     - [System Behavior](#system-behavior)
+- [🖥️ PCB Details](#-pcb_details)
 - [🗂 Project Hierarchy](#project-hierarchy)
     - [Directories](#directories)
     - [Files](#files)
@@ -84,6 +85,35 @@ This IC tester kit primarily involves these main user operations:
 
 ---
 
+Sure! I'll add more detailed information about the PCB and the jumpers. Here's the enhanced version:
+
+---
+
+## 🖥️ PCB Details
+
+The PCB contains several jumpers to configure its operation in specific ways. Here are the detailed descriptions:
+
+1. **Input Voltage Source Selection**:
+   - **Jumper 1**: Selects the source of the input voltage for the ICs.
+     - **Option 1**: Always 5V input voltage.
+       - This option provides a constant 5V to all ICs, ensuring a stable and fixed voltage supply.
+     - **Option 2**: Controlled input using 2N2222 transistor.
+       - This option allows the input voltage to be controlled dynamically, providing 5V or 0V to each IC as needed. The 2N2222 transistor acts as a switch, enabling precise control over the voltage supplied to each IC.
+
+2. **Supply Voltage Detection**:
+   - **Jumper 2**: Detects the supply voltage for each IC (12V or 5V).
+     - This jumper utilizes a 2N2222 transistor to detect whether each IC is being supplied with 12V or 5V. This detection mechanism ensures that each IC receives the appropriate voltage for its operation and helps prevent damage due to incorrect voltage levels.
+
+3. **Supply Voltage Selection for the Whole Kit**:
+   - **Jumper 3**: Selects the supply voltage for the entire IC tester kit.
+     - **Option 1**: Using Arduino (LM1117IMPX-5.0) internal IC.
+       - This option uses the LM1117IMPX-5.0 regulator IC on the Arduino board to provide a 5V supply to the entire kit. The LM1117IMPX-5.0 is a low-dropout voltage regulator known for its stable output and high efficiency.
+     - **Option 2**: Using LM7805 IC.
+       - This option uses the LM7805 regulator IC to provide a 5V supply to the entire kit. The LM7805 is a widely used voltage regulator that offers a reliable 5V output with robust performance.
+
+These jumpers allow the user to configure the IC tester kit to meet specific testing requirements and ensure optimal performance. Properly setting these jumpers is essential for accurate and reliable testing of amplifier ICs.
+
+---
 ## 🗂 Project Hierarchy
 
 The project contains some files and directories:
