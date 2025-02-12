@@ -180,8 +180,4 @@ Contributions to this project are welcome! Follow these steps:
 
 ## 📞 Contact me
 
-<p><a href="https://www.linkedin.com/in/your-profile" target="_blank"><img alt="LinkedIn" src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a> <a href="mailto:your-email@example.com" target="_blank"><img alt="Gmail" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/640px-Gmail_icon_%282020%29.svg.png" height="30" /></a> </p>
-
----
-
-I hope this structure fits well with your new project. Feel free to adjust any details or add more information as needed! Let me know if there's anything else you'd like to include.
+<p><a href="https://www.linkedin.com/in/-abdelrahman-ahmed/" target="_blank"><img alt="LinkedIn" src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a> <a href="mailto:http://abdelrahman.ahmed0599@gmail.com/" target="_blank"><img alt="Gmail" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/640px-Gmail_icon_%282020%29.svg.png" height="30" /></a> </p>
