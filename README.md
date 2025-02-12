@@ -48,7 +48,7 @@ The **IC Tester Kit Using Arduino** is a microcontroller-based application desig
 - [📑 Table of Contents](#table-of-contents)
 - [⚙ Working](#-working)
     - [System Behavior](#system-behavior)
-- [🖥️ PCB Details](#-pcb_details)
+- [🖥️ PCB Details](#-pcb-details)
 - [🗂 Project Hierarchy](#project-hierarchy)
     - [Directories](#directories)
     - [Files](#files)
@@ -82,10 +82,6 @@ This IC tester kit primarily involves these main user operations:
 4. **Stopping the Test**:
    - Use the buttons to stop the test.
    - The system will reset and be ready for the next test.
-
----
-
-Sure! I'll add more detailed information about the PCB and the jumpers. Here's the enhanced version:
 
 ---
 
