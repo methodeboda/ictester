@@ -48,7 +48,7 @@ The **IC Tester Kit Using Arduino** is a microcontroller-based application desig
 - [📑 Table of Contents](#table-of-contents)
 - [⚙ Working](#-working)
     - [System Behavior](#system-behavior)
-- [🖥️ PCB Details](#-pcb-details)
+- [🖥️ PCB Details](#pcb-details)
 - [🗂 Project Hierarchy](#project-hierarchy)
     - [Directories](#directories)
     - [Files](#files)
