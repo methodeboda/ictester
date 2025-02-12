@@ -1,7 +1,3 @@
-Thanks for sharing your previous project's README file! Based on its structure, here's a draft for your new project:
-
----
-
 <h1 align="center">IC Tester Kit Using Arduino</h1>
 
 <p align="center">
@@ -59,6 +55,7 @@ The **IC Tester Kit Using Arduino** is a microcontroller-based application desig
 - [🙋‍♂️ Contribute](#️-contribute)
 - [📞 Contact me](#-contact-me)
 
+
 ---
 
 ## ⚙ Working
@@ -68,8 +65,8 @@ The **IC Tester Kit Using Arduino** is a microcontroller-based application desig
 This IC tester kit primarily involves these main user operations:
 
 1. **Starting the Test**:
-   - Use the buttons to initiate the test.
-   - The display will guide you through the process.
+   - Put the IC in the IC test socket.
+   - Enter the select IC page, use the next button (PB) to select the desired IC to test, and press the enter button (PB).
 
 2. **Running the Test**:
    - The system provides input signals to the ICs and measures their output.
@@ -79,10 +76,10 @@ This IC tester kit primarily involves these main user operations:
    - The display will show the test results for each IC.
    - Users can see which ICs are functional and which are faulty.
 
-4. **Stopping the Test**:
-   - Use the buttons to stop the test.
-   - The system will reset and be ready for the next test.
-
+4. **Settings**:
+   - **Battery Level**: Check the battery level of the tester kit.
+   - **ICs Ideal Readings**: For better understanding of the project, a reference IC of each type is included in the kit. The system compares the real-time readings of the IC under test with the ideal readings from the reference ICs in the kit. The settings page allows users to verify that the reference ICs in the kit are functioning well and not malfunctioning by comparing their real-time readings with the preset parameters.
+     
 ---
 
 ## 🖥️ PCB Details
